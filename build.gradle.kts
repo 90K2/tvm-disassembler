@@ -44,9 +44,12 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
-
+val javadocJar by tasks.registering(Jar::class) {
+	archiveClassifier.set("javadoc")
+}
 publishing {
 	publications.withType<MavenPublication> {
+		artifact(javadocJar.get())
 		pom {
 			groupId = "org.ton"
 			artifactId = "disassembler"
