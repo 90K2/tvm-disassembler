@@ -44,3 +44,13 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+publishing {
+	publications.withType<MavenPublication> {
+		pom {
+			groupId = "org.ton"
+			artifactId = "disassembler"
+			version = "0.0.1"
+		}
+	}
+}
