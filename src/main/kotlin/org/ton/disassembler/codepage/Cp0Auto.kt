@@ -1,12 +1,12 @@
-package com.not.disassembler.codepage
+package org.ton.disassembler.codepage
 
-import com.not.disassembler.TVMDecompiler
-import com.not.disassembler.struct.Extensions.toCellSlice
-import com.not.disassembler.struct.Extensions.toFiftHex
 import org.ton.bigint.BigInt
 import org.ton.bitstring.BitString
 import org.ton.cell.Cell
 import org.ton.cell.CellSlice
+import org.ton.disassembler.TVMDecompiler
+import org.ton.disassembler.struct.Extensions.toCellSlice
+import org.ton.disassembler.struct.Extensions.toFiftHex
 import java.math.BigInteger
 
 

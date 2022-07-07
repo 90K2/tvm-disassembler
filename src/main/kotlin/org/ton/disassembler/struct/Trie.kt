@@ -1,4 +1,4 @@
-package com.not.disassembler.struct
+package org.ton.disassembler.struct
 
 class TrieNode<T>(
     val key: String?, var value: T?

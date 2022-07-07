@@ -1,17 +1,15 @@
-package com.not.disassembler
+package org.ton.disassembler
 
-import com.not.disassembler.codepage.Cp0Auto
-import com.not.disassembler.codepage.Op
-import com.not.disassembler.const.KnownMethods
-import com.not.disassembler.struct.Extensions.loadDict
-import com.not.disassembler.struct.Extensions.readRemaining
-import com.not.disassembler.struct.Extensions.toFiftHex
 import org.ton.bigint.BigInt
 import org.ton.bitstring.BitString
 import org.ton.cell.Cell
 import org.ton.cell.CellSlice
-import kotlin.math.ceil
-import kotlin.math.log2
+import org.ton.disassembler.codepage.Cp0Auto
+import org.ton.disassembler.codepage.Op
+import org.ton.disassembler.const.KnownMethods
+import org.ton.disassembler.struct.Extensions.loadDict
+import org.ton.disassembler.struct.Extensions.readRemaining
+import org.ton.disassembler.struct.Extensions.toFiftHex
 
 object TVMDecompiler {
 

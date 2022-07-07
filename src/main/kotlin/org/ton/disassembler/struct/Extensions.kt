@@ -1,4 +1,4 @@
-package com.not.disassembler.struct
+package org.ton.disassembler.struct
 
 import org.ton.bigint.BigInt
 import org.ton.bitstring.BitString
