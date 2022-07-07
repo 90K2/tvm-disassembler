@@ -5,7 +5,6 @@ import org.ton.bitstring.BitString
 import org.ton.cell.Cell
 import org.ton.cell.CellSlice
 import org.ton.disassembler.TVMDecompiler
-import org.ton.disassembler.struct.Extensions.toFiftHex
 import java.math.BigInteger
 
 
@@ -1494,11 +1493,10 @@ class Cp0Auto: Codepage() {
                 if (push) { // f4a4
                     val subslice = fetchSubslice(slice, BigInt(0), BigInt(1))
                     val keyLen = slice.loadUInt(10)
-                    var decompiled: String
-                    try {
-                        decompiled = TVMDecompiler.decompileMethodsMap(subslice, keyLen.toInt(), indent!!)
+                    val decompiled: String = try {
+                        TVMDecompiler.decompileMethodsMap(subslice, keyLen.toInt(), indent!!)
                     } catch (e: Exception) {
-                        decompiled = subslice.bits.toFiftHex()
+                        subslice.bits.toString()
                     }
                     return "$decompiled $keyLen DICTPUSHCONST"
                 }

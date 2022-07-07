@@ -9,7 +9,6 @@ import org.ton.disassembler.codepage.Op
 import org.ton.disassembler.const.KnownMethods
 import org.ton.disassembler.struct.Extensions.loadDict
 import org.ton.disassembler.struct.Extensions.readRemaining
-import org.ton.disassembler.struct.Extensions.toFiftHex
 
 object TVMDecompiler {
 
@@ -65,7 +64,7 @@ object TVMDecompiler {
             if (matches.isEmpty()) {
                 val bitString = BitString(opCode.map { it.toString() != "0" })
                 bitString.plus(workSlice.readRemaining())
-                result = result.append(bitString.toFiftHex(), indent)
+                result = result.append(bitString.toString(), indent)
                 continue
             }
 

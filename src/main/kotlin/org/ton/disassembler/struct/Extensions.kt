@@ -2,34 +2,10 @@ package org.ton.disassembler.struct
 
 import org.ton.bigint.BigInt
 import org.ton.bitstring.BitString
-import org.ton.cell.Cell
 import org.ton.cell.CellSlice
-import kotlin.math.ceil
 import kotlin.math.log2
 
 object Extensions {
-
-    fun Cell.toCellSlice(): CellSlice = CellSlice.of(this.bits, this.refs)
-
-    fun BitString.toFiftHex(): String {
-        if (this.size % 4 == 0) {
-            val s = this.subList(0, ceil(this.size.div(8).toDouble()).toInt()).toByteArray().toHex().uppercase()
-            return if (this.size % 8 == 0)
-                s
-            else
-                s.substring(0, s.length - 1)
-        } else {
-            val tmp = this.clone()
-            tmp.plus(1)
-            while (tmp.size % 4 != 0) {
-                tmp.plus(0)
-            }
-            val hex = tmp.toFiftHex().uppercase()
-
-            return hex + "_"
-        }
-    }
-
 
     fun <T> CellSlice.loadDict(keySize: Int, extractor: (CellSlice) -> T): Map<String, T> {
         this.refs.firstOrNull()?.let {
@@ -91,18 +67,6 @@ object Extensions {
                 doParse(pp + "1", right.beginParse(), n - prefixLength - 1, res, extractor)
             }
         }
-    }
-
-    fun ByteArray.toHex(): String {
-        return joinToString(separator = "") { eachByte -> "%02x".format(eachByte) }
-    }
-
-    fun BitString.clone(): BitString {
-        val buffer = BitString(this.size)
-        this.forEach {
-            buffer.plus(it)
-        }
-        return buffer
     }
 
     fun CellSlice.readRemaining(): BitString {
