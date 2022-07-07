@@ -1,8 +1,8 @@
-package com.ton.disassembler.codepage
+package com.not.disassembler.codepage
 
-import com.ton.disassembler.TVMDecompiler
-import com.ton.disassembler.struct.Extensions.toCellSlice
-import com.ton.disassembler.struct.Extensions.toFiftHex
+import com.not.disassembler.TVMDecompiler
+import com.not.disassembler.struct.Extensions.toCellSlice
+import com.not.disassembler.struct.Extensions.toFiftHex
 import org.ton.bigint.BigInt
 import org.ton.bitstring.BitString
 import org.ton.cell.Cell

@@ -1,4 +1,4 @@
-package com.ton.disassembler
+package com.not.disassembler
 
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Test

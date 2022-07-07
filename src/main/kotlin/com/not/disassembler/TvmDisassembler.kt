@@ -1,11 +1,11 @@
-package com.ton.disassembler
+package com.not.disassembler
 
-import com.ton.disassembler.codepage.Cp0Auto
-import com.ton.disassembler.codepage.Op
-import com.ton.disassembler.const.KnownMethods
-import com.ton.disassembler.struct.Extensions.loadDict
-import com.ton.disassembler.struct.Extensions.readRemaining
-import com.ton.disassembler.struct.Extensions.toFiftHex
+import com.not.disassembler.codepage.Cp0Auto
+import com.not.disassembler.codepage.Op
+import com.not.disassembler.const.KnownMethods
+import com.not.disassembler.struct.Extensions.loadDict
+import com.not.disassembler.struct.Extensions.readRemaining
+import com.not.disassembler.struct.Extensions.toFiftHex
 import org.ton.bigint.BigInt
 import org.ton.bitstring.BitString
 import org.ton.cell.Cell

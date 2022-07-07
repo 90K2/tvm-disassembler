@@ -1,6 +1,6 @@
-package com.ton.disassembler.codepage
+package com.not.disassembler.codepage
 
-import com.ton.disassembler.struct.Trie
+import com.not.disassembler.struct.Trie
 import org.ton.bitstring.BitString
 import org.ton.cell.Cell
 import org.ton.cell.CellSlice

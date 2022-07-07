@@ -1,4 +1,4 @@
-package com.ton.disassembler.const
+package com.not.disassembler.const
 
 object KnownMethods {
     val map: Map<Int, String> = mapOf(
