@@ -37,7 +37,7 @@ object TVMDecompiler {
             val cell = Cell()
             cell.bits.plus(BigInt(key, 19));
             val methodId = cell.beginParse().loadInt(19).toInt()
-            result = result.append("${KnownMethods.map[methodId] ?: methodId}: \n${code}", indent_)
+            result = result.append("${KnownMethods.get(methodId) ?: methodId}: \n${code}", indent_)
         }
         result = result.slice(0..result.length-2) // remove trailing newline
         indent_ -= 2
