@@ -10,7 +10,7 @@ import org.ton.disassembler.const.KnownMethods
 import org.ton.disassembler.struct.Extensions.loadDict
 import org.ton.disassembler.struct.Extensions.readRemaining
 
-object TVMDecompiler {
+object TvmDisassembler {
 
     private val codepage = Cp0Auto()
 

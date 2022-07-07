@@ -4,7 +4,7 @@ import org.ton.bigint.BigInt
 import org.ton.bitstring.BitString
 import org.ton.cell.Cell
 import org.ton.cell.CellSlice
-import org.ton.disassembler.TVMDecompiler
+import org.ton.disassembler.TvmDisassembler
 import java.math.BigInteger
 
 
@@ -397,7 +397,7 @@ class Cp0Auto: Codepage() {
 
                 val subslice = fetchSubslice(slice, dataBytes, refs)
                 return "<{\n${
-                    TVMDecompiler.decompile(
+                    TvmDisassembler.decompile(
                         subslice,
                         indent!! + 2
                     )
@@ -409,7 +409,7 @@ class Cp0Auto: Codepage() {
                 val len = slice.loadUInt(4) * BigInt(8)
                 val subslice = fetchSubslice(slice, len)
                 return "<{\n${
-                    TVMDecompiler.decompile(
+                    TvmDisassembler.decompile(
                         subslice,
                         indent!! + 2
                     )
@@ -998,7 +998,7 @@ class Cp0Auto: Codepage() {
             fun(slice: CellSlice, indent: Int?): String {
                 val subslice = slice.loadRef().beginParse()
                 return "<{\n${
-                    TVMDecompiler.decompile(
+                    TvmDisassembler.decompile(
                         subslice,
                         indent!! + 2
                     )
@@ -1009,7 +1009,7 @@ class Cp0Auto: Codepage() {
             fun(slice: CellSlice, indent: Int?): String {
                 val subslice = slice.loadRef().beginParse()
                 return "<{\n${
-                    TVMDecompiler.decompile(
+                    TvmDisassembler.decompile(
                         subslice,
                         indent!! + 2
                     )
@@ -1020,7 +1020,7 @@ class Cp0Auto: Codepage() {
             fun(slice: CellSlice, indent: Int?): String {
                 val subslice = slice.loadRef().beginParse()
                 return "<{\n${
-                    TVMDecompiler.decompile(
+                    TvmDisassembler.decompile(
                         subslice,
                         indent!! + 2
                     )
@@ -1040,7 +1040,7 @@ class Cp0Auto: Codepage() {
             fun(slice: CellSlice, indent: Int?): String {
                 val subslice = slice.loadRef().beginParse()
                 return "<{\n${
-                    TVMDecompiler.decompile(
+                    TvmDisassembler.decompile(
                         subslice,
                         indent!! + 2
                     )
@@ -1051,7 +1051,7 @@ class Cp0Auto: Codepage() {
             fun(slice: CellSlice, indent: Int?): String {
                 val subslice = slice.loadRef().beginParse()
                 return "<{\n${
-                    TVMDecompiler.decompile(
+                    TvmDisassembler.decompile(
                         subslice,
                         indent!! + 2
                     )
@@ -1062,7 +1062,7 @@ class Cp0Auto: Codepage() {
             fun(slice: CellSlice, indent: Int?): String {
                 val subslice = slice.loadRef().beginParse()
                 return "<{\n${
-                    TVMDecompiler.decompile(
+                    TvmDisassembler.decompile(
                         subslice,
                         indent!! + 2
                     )
@@ -1073,7 +1073,7 @@ class Cp0Auto: Codepage() {
             fun(slice: CellSlice, indent: Int?): String {
                 val subslice = slice.loadRef().beginParse()
                 return "<{\n${
-                    TVMDecompiler.decompile(
+                    TvmDisassembler.decompile(
                         subslice,
                         indent!! + 2
                     )
@@ -1090,7 +1090,7 @@ class Cp0Auto: Codepage() {
             fun(slice: CellSlice, indent: Int?): String {
                 val subslice = slice.loadRef().beginParse()
                 return "<{\n${
-                    TVMDecompiler.decompile(
+                    TvmDisassembler.decompile(
                         subslice,
                         indent!! + 2
                     )
@@ -1101,7 +1101,7 @@ class Cp0Auto: Codepage() {
             fun(slice: CellSlice, indent: Int?): String {
                 val subslice = slice.loadRef().beginParse()
                 return "<{\n${
-                    TVMDecompiler.decompile(
+                    TvmDisassembler.decompile(
                         subslice,
                         indent!! + 2
                     )
@@ -1112,7 +1112,7 @@ class Cp0Auto: Codepage() {
             fun(slice: CellSlice, indent: Int?): String {
                 val subslice = slice.loadRef().beginParse()
                 return "<{\n${
-                    TVMDecompiler.decompile(
+                    TvmDisassembler.decompile(
                         subslice,
                         indent!! + 2
                     )
@@ -1494,7 +1494,7 @@ class Cp0Auto: Codepage() {
                     val subslice = fetchSubslice(slice, BigInt(0), BigInt(1))
                     val keyLen = slice.loadUInt(10)
                     val decompiled: String = try {
-                        TVMDecompiler.decompileMethodsMap(subslice, keyLen.toInt(), indent!!)
+                        TvmDisassembler.decompileMethodsMap(subslice, keyLen.toInt(), indent!!)
                     } catch (e: Exception) {
                         subslice.bits.toString()
                     }
