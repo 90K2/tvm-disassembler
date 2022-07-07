@@ -5,7 +5,6 @@ import org.ton.bitstring.BitString
 import org.ton.cell.Cell
 import org.ton.cell.CellSlice
 import org.ton.disassembler.TVMDecompiler
-import org.ton.disassembler.struct.Extensions.toCellSlice
 import org.ton.disassembler.struct.Extensions.toFiftHex
 import java.math.BigInteger
 
@@ -398,7 +397,6 @@ class Cp0Auto: Codepage() {
                 val dataBytes = (args.and(BigInt(127))) * BigInt(8)
 
                 val subslice = fetchSubslice(slice, dataBytes, refs)
-                // <{\n${TVMDecompiler.decompile(slice.loadRef().toCellSlice(), indent + 2)}${Array(indent) {  " " }.joinToString("")}}> PUSHCONT"
                 return "<{\n${
                     TVMDecompiler.decompile(
                         subslice,
@@ -999,7 +997,7 @@ class Cp0Auto: Codepage() {
         this.insertHex("db3b", 16, Op.OpCodeStr("CALLCCVARARGS"))
         this.insertHex("db3c", 16, Op.OpCodeFun(
             fun(slice: CellSlice, indent: Int?): String {
-                val subslice = slice.loadRef().toCellSlice()
+                val subslice = slice.loadRef().beginParse()
                 return "<{\n${
                     TVMDecompiler.decompile(
                         subslice,
@@ -1010,7 +1008,7 @@ class Cp0Auto: Codepage() {
         )
         this.insertHex("db3d", 16, Op.OpCodeFun(
             fun(slice: CellSlice, indent: Int?): String {
-                val subslice = slice.loadRef().toCellSlice()
+                val subslice = slice.loadRef().beginParse()
                 return "<{\n${
                     TVMDecompiler.decompile(
                         subslice,
@@ -1021,7 +1019,7 @@ class Cp0Auto: Codepage() {
         )
         this.insertHex("db3e", 16, Op.OpCodeFun(
             fun(slice: CellSlice, indent: Int?): String {
-                val subslice = slice.loadRef().toCellSlice()
+                val subslice = slice.loadRef().beginParse()
                 return "<{\n${
                     TVMDecompiler.decompile(
                         subslice,
@@ -1041,7 +1039,7 @@ class Cp0Auto: Codepage() {
         this.insertHex("e2", 8, Op.OpCodeStr("IFELSE"))
         this.insertHex("e300", 16, Op.OpCodeFun(
             fun(slice: CellSlice, indent: Int?): String {
-                val subslice = slice.loadRef().toCellSlice()
+                val subslice = slice.loadRef().beginParse()
                 return "<{\n${
                     TVMDecompiler.decompile(
                         subslice,
@@ -1052,7 +1050,7 @@ class Cp0Auto: Codepage() {
         )
         this.insertHex("e301", 16, Op.OpCodeFun(
             fun(slice: CellSlice, indent: Int?): String {
-                val subslice = slice.loadRef().toCellSlice()
+                val subslice = slice.loadRef().beginParse()
                 return "<{\n${
                     TVMDecompiler.decompile(
                         subslice,
@@ -1063,7 +1061,7 @@ class Cp0Auto: Codepage() {
         )
         this.insertHex("e302", 16, Op.OpCodeFun(
             fun(slice: CellSlice, indent: Int?): String {
-                val subslice = slice.loadRef().toCellSlice()
+                val subslice = slice.loadRef().beginParse()
                 return "<{\n${
                     TVMDecompiler.decompile(
                         subslice,
@@ -1074,7 +1072,7 @@ class Cp0Auto: Codepage() {
         )
         this.insertHex("e303", 16, Op.OpCodeFun(
             fun(slice: CellSlice, indent: Int?): String {
-                val subslice = slice.loadRef().toCellSlice()
+                val subslice = slice.loadRef().beginParse()
                 return "<{\n${
                     TVMDecompiler.decompile(
                         subslice,
@@ -1091,7 +1089,7 @@ class Cp0Auto: Codepage() {
 // 14879232 (DUMMY)
         this.insertHex("e30d", 16, Op.OpCodeFun(
             fun(slice: CellSlice, indent: Int?): String {
-                val subslice = slice.loadRef().toCellSlice()
+                val subslice = slice.loadRef().beginParse()
                 return "<{\n${
                     TVMDecompiler.decompile(
                         subslice,
@@ -1102,7 +1100,7 @@ class Cp0Auto: Codepage() {
         )
         this.insertHex("e30e", 16, Op.OpCodeFun(
             fun(slice: CellSlice, indent: Int?): String {
-                val subslice = slice.loadRef().toCellSlice()
+                val subslice = slice.loadRef().beginParse()
                 return "<{\n${
                     TVMDecompiler.decompile(
                         subslice,
@@ -1113,7 +1111,7 @@ class Cp0Auto: Codepage() {
         )
         this.insertHex("e30f", 16, Op.OpCodeFun(
             fun(slice: CellSlice, indent: Int?): String {
-                val subslice = slice.loadRef().toCellSlice()
+                val subslice = slice.loadRef().beginParse()
                 return "<{\n${
                     TVMDecompiler.decompile(
                         subslice,
