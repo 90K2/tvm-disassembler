@@ -11,7 +11,7 @@ object Extensions {
         this.refs.firstOrNull()?.let {
             this.refs.drop(1)
             return parseDict(it.beginParse(), keySize, extractor)
-        } ?: throw RuntimeException("No ref")
+        } ?:    throw RuntimeException("No ref")
     }
 
     private fun <T> parseDict(slice: CellSlice, keySize: Int, extractor: (CellSlice) -> T): Map<String, T> {
@@ -70,10 +70,6 @@ object Extensions {
     }
 
     fun CellSlice.readRemaining(): BitString {
-        val bits = mutableListOf<Boolean>()
-        while (this.bitsPosition < this.bits.size) {
-            bits.add(this.loadBit())
-        }
-        return BitString(bits)
+        return BitString((this.bitsPosition until this.bits.size).map { this.loadBit() })
     }
 }

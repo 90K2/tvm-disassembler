@@ -30,7 +30,7 @@ dependencies {
 	runtimeOnly("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.2")
 
 	implementation("com.github.andreypfau:curve25519-kotlin:main-SNAPSHOT")
-	implementation("com.github.andreypfau:ton-kotlin:main-SNAPSHOT")
+	implementation("com.github.andreypfau:ton-kotlin:c678f34b0a")
 
 }
 
